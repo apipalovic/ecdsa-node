@@ -4,6 +4,7 @@ import server from "./server";
 function Transfer({ address, setBalance }) {
   const [sendAmount, setSendAmount] = useState("");
   const [recipient, setRecipient] = useState("");
+  const [signature, setSignature] = useState("");
 
   const setValue = (setter) => (evt) => setter(evt.target.value);
 
@@ -17,12 +18,14 @@ function Transfer({ address, setBalance }) {
         sender: address,
         amount: parseInt(sendAmount),
         recipient,
+        signature,
       });
       setBalance(balance);
     } catch (ex) {
       alert(ex.response.data.message);
     }
   }
+
 
   return (
     <form className="container transfer" onSubmit={transfer}>
@@ -44,6 +47,14 @@ function Transfer({ address, setBalance }) {
           value={recipient}
           onChange={setValue(setRecipient)}
         ></input>
+      </label>
+      
+      <label>
+        Signature
+        <input 
+          placeholder="Type a signature" 
+          value={signature} 
+          onChange={setValue(setSignature)}></input>
       </label>
 
       <input type="submit" className="button" value="Transfer" />
