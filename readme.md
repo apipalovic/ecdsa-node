@@ -29,3 +29,10 @@ The server folder contains a node.js server using [express](https://expressjs.co
 The application should connect to the default server port (3042) automatically! 
 
 _Hint_ - Use [nodemon](https://www.npmjs.com/package/nodemon) instead of `node` to automatically restart the server on any changes.
+
+## DATA PREPARATION
+1. Open a terminal within the `/server/scripts` folder and run `generate.js` 3 times
+2. Open index.js file within the `/server` folder and paste public addresses into balances
+3. Run client and server applications and fill input fields
+4. Change variables within the `/server/scripts/createSignature.js` and run it. Given signature paste into APP
+5. Click transfer
